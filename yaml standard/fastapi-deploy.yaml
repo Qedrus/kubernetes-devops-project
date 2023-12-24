@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: fastapi
-        image: your-fastapi-image
+        image: icedrus/my-fastapi:1.0
         ports:
         - containerPort: 5000
         resources:
