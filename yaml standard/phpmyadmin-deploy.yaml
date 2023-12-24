@@ -20,5 +20,3 @@ spec:
           value: "1"
         ports:
         - containerPort: 80
-  dependsOn:
-  - name: db
