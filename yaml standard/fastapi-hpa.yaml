@@ -3,14 +3,16 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: fastapi-hpa
 spec:
+  maxReplicas: 6
+  minReplicas: 3
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: fastapi
-  minReplicas: 3
-  maxReplicas: 6
   metrics:
   - type: Resource
     resource:
       name: cpu
-      targetAverageUtilization: 70
+      target:
+        type: Utilization
+        averageUtilization: 70
