@@ -37,3 +37,5 @@ spec:
           value: root
         - name: MYSQL_DATABASE
           value: storedb
+        - name: DB_HOST  
+          value: "mysql-service" 
