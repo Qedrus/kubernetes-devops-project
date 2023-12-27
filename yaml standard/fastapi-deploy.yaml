@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fastapi
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: fastapi
@@ -34,6 +34,8 @@ spec:
             port: 5000
         env:
         - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_USER
           value: root
         - name: MYSQL_DATABASE
           value: storedb

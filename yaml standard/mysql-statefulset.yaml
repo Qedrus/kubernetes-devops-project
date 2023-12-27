@@ -4,7 +4,6 @@ metadata:
   name: mysql
 spec:
   serviceName: "mysql-service"
-  replicas: 3
   selector:
     matchLabels:
       app: mysql
@@ -15,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql:8.0
+        image: mysql:latest
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: root
@@ -30,8 +29,9 @@ spec:
   - metadata:
       name: mysql-data
     spec:
-      accessModes: ["ReadWriteOnce"]
       storageClassName: standard
+      accessModes:
+        - ReadWriteOnce
       resources:
         requests:
           storage: 10Gi

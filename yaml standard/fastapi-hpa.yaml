@@ -1,7 +1,7 @@
-apiVersion: autoscaling/v2
+apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: fastapi-hpa
+  name: fastapi
 spec:
   maxReplicas: 6
   minReplicas: 3
@@ -9,10 +9,4 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: fastapi
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 70
+  targetCPUUtilizationPercentage: 70
